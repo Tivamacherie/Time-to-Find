@@ -1,0 +1,966 @@
+{
+  "cases": [
+    {
+      "id": "case-marianne",
+      "code": "CASE #01",
+      "title": "Marianne's Disappearance",
+      "status": "OPEN // PRIORITY",
+      "playable": true,
+      "shortDesc": "Senior museum curator Marianne Reed vanishes after an evening shift on July 27, 2024.",
+      "victim": {
+        "id": "marianne",
+        "name": "Marianne Reed",
+        "age": 48,
+        "occupation": "Senior Curator, Grand Meridian Museum",
+        "lastSeen": "July 27, 2024 — 18:32 (Museum East Wing)",
+        "reportedBy": "David Reed (Husband) at 21:00"
+      },
+      "briefingSummary": "On July 27, 2024 at 21:00, Archival Conservator David Reed contacted police to report that his wife, Marianne Reed, had failed to return home from the Grand Meridian Museum. According to David, Marianne's routine rarely deviates without prior notice, though there had been recent tension surrounding her curatorial discoveries at work. Examine the physical scene, logs, and timelines across all four channels—every action costs 5 minutes of your 30-minute critical window.",
+      "blueprintTitle": "BLUEPRINT // GRAND MERIDIAN MUSEUM (CLICK [A], [B], OR [C])",
+      "blueprintRooms": ["CONSERVATION", "CORRIDOR", "SUB-VAULT B"],
+      "channels": {
+        "cctv": {
+          "title": "Surveillance Feeds (CCTV)",
+          "cameras": [
+            {
+              "label": "CAM-04 // East Wing Exit (18:32)",
+              "timestamp": "2024-07-27 18:32:14",
+              "location": "EAST CORRIDOR EXIT",
+              "notes": "Marianne Reed exits the restoration lab carrying a sealed archival tube. Moments later, a figure in a dark coat steps out from the restricted stairwell and blocks her path. Overhead glare obscures the person's face.",
+              "clueText": "[RESCUE] CCTV Cam-04 (18:32): Unidentified figure in a dark coat intercepted Marianne near the East Wing stairwell."
+            },
+            {
+              "label": "CAM-09 // Sub-Basement Elevator (18:39)",
+              "timestamp": "2024-07-27 18:39:51",
+              "location": "SUB-VAULT B ACCESS",
+              "notes": "The service freight elevator descends to Sub-Basement Level 2 after an administrative override code is entered on the wall panel. The camera angle cuts off above the waist.",
+              "clueText": "[RESCUE] CCTV Cam-09 (18:39): Freight elevator descended to Sub-Basement Level 2 using an administrative override code."
+            }
+          ],
+          "deepScan": {
+            "id": "deep-cctv",
+            "label": "ENHANCE REFLECTION PIXELS (-05:00)",
+            "result": "IMAGE ENHANCEMENT: Zooming into the brushed-steel elevator door reveals a gold-striped museum access badge (issued only to senior curatorial and executive staff) and polished leather dress shoes.",
+            "clueText": "[RESCUE] CCTV Enhancement: Elevator reflection shows a gold-striped executive/curatorial badge and leather dress shoes."
+          }
+        },
+        "phone": {
+          "title": "Mobile Forensics (Marianne's Device)",
+          "calls": [
+            { "time": "20:15", "contact": "David Reed (Husband)", "status": "Missed Call (0s)" },
+            { "time": "19:30", "contact": "David Reed (Husband)", "status": "Missed Call (0s)" },
+            { "time": "19:02", "contact": "David Reed (Husband)", "status": "Missed Call (0s)" },
+            { "time": "18:45", "contact": "David Reed (Husband)", "status": "Missed Call (0s)" },
+            { "time": "18:20", "contact": "Museum Ext. 402 (Admin Wing)", "status": "Incoming Answered (2m 14s)" }
+          ],
+          "draft": {
+            "time": "18:36 (Unsent Draft)",
+            "text": "The provenance ledger for the Aurelian Relic has been altered. Someone swapped the original certificate before the board review. Heading down to Sub-Vault B to photograph the original seal before—"
+          },
+          "gps": {
+            "time": "18:48 (Last Tower Ping)",
+            "coords": "Sector 4B — Grand Meridian Museum Sub-Basement (Signal cut off by reinforced concrete shielding)"
+          },
+          "clueText": "[RESCUE] Phone Forensics: Unsent 18:36 draft warns that the Aurelian Relic provenance ledger was altered; missed calls from home began at 18:45.",
+          "deepScan": {
+            "id": "deep-phone",
+            "label": "ANALYZE CALL AUDIO (-05:00)",
+            "result": "AUDIO SPECTRUM: Carrier wave noise from the 18:20 call carries the distinct low-frequency hum of the Sub-Basement climate turbines—indicating the caller was already below ground level, not upstairs.",
+            "clueText": "[RESCUE] Audio Trace: Background turbine hum on the 18:20 call indicates the caller was already inside the sub-basement."
+          }
+        },
+        "people": {
+          "title": "Connected Persons & Statements",
+          "profiles": [
+            {
+              "id": "david",
+              "name": "David Reed",
+              "meta": "Age: 55 | Archival Conservator / Restoration Specialist | Husband",
+              "appearance": "Tall, lean build with salt-and-pepper hair. Wears a dark tweed jacket over a navy sweater; speaks quietly with visible tension.",
+              "bullets": [
+                "Contacted police at 21:00 on July 27, 2024 to report Marianne missing.",
+                "Works in museum restoration and is familiar with Sub-Vault B preservation procedures.",
+                "Stated he left the museum early at 17:30 to prepare dinner and began calling Marianne at 18:45 when she did not arrive.",
+                "Mentioned Marianne had been under pressure regarding an authentication dispute at work."
+              ]
+            },
+            {
+              "id": "julian",
+              "name": "Dr. Julian Vance",
+              "meta": "Age: 49 | Deputy Museum Director | Administration",
+              "appearance": "Tailored charcoal wool suit, gold-striped executive lanyard, composed and formal posture.",
+              "bullets": [
+                "Oversees acquisitions and provenance approvals for the upcoming Aurelian Relic exhibition.",
+                "Stated he departed the museum at 18:00 sharp to attend a private donor gala downtown.",
+                "Described Marianne's recent audit of the relic archives as 'routine pre-exhibition paperwork.'"
+              ]
+            },
+            {
+              "id": "arthur",
+              "name": "Arthur Pendelton",
+              "meta": "Age: 62 | Night Security Guard | Facility Operations",
+              "appearance": "Standard navy security windbreaker, heavy brass keyring, restless demeanor.",
+              "bullets": [
+                "Assumed sole security watch of the museum perimeter at 18:00.",
+                "Admitted leaving the main security console unmonitored between 18:30 and 18:45 during a courtyard check.",
+                "Noticed Sub-Vault B's airtight preservation seal had been manually engaged when he resumed his post."
+              ]
+            }
+          ],
+          "clueText": "[RESCUE] Statements: David claims he left at 17:30; Julian states he left at 18:00 for a gala; Arthur left the security desk unattended from 18:30–18:45.",
+          "deepScan": {
+            "id": "deep-people",
+            "label": "CROSS-CHECK EXTERNAL LOGS (-05:00)",
+            "result": "EXTERNAL VERIFICATION: Street-facing doorbell footage confirms David's vehicle parked at his residence at 17:52. Meanwhile, the downtown gala's valet and check-in logs show no arrival record between 18:00 and 20:30.",
+            "clueText": "[RESCUE] External Logs: Residential camera confirms David arrived home at 17:52; downtown gala logs show no arrival record for the 18:00 event."
+          }
+        },
+        "location": {
+          "title": "Scene Inspection: Conservation Wing & Sub-Vault B",
+          "hotspots": [
+            {
+              "id": "desk",
+              "title": "[A] Conservation Desk",
+              "detail": "Marianne's handbag, coat, and house keys remain untouched beside her terminal—indicating she stepped away abruptly without intending to leave the building. A torn corner of an exhibition certificate lies near the shredder."
+            },
+            {
+              "id": "corridor",
+              "title": "[B] Freight Corridor",
+              "detail": "Fresh dark rubber heel marks lead from the East Wing stairwell toward the freight elevator. A bent gold-striped lanyard clasp was recovered on the floor beside the call button."
+            },
+            {
+              "id": "vault",
+              "title": "[C] Sub-Vault B Door",
+              "detail": "The heavy airtight preservation door is sealed via manual climate-purge lock. The exterior oxygen gauge reads 14% and continues to drop."
+            }
+          ],
+          "clueText": "[RESCUE] Scene Scan: Keys left on desk; rubber scuff marks and a gold-striped lanyard clasp lead to Sub-Vault B, where oxygen is dropping.",
+          "deepScan": {
+            "id": "deep-location",
+            "label": "INSPECT KEYPAD LOGS (-05:00)",
+            "result": "ACCESS DIAGNOSTIC: The Sub-Vault B door was locked at 18:41 using an executive-level master override PIN rather than a standard facility guard keycard.",
+            "clueText": "[RESCUE] Keypad Log: Sub-Vault B was locked at 18:41 using an executive-level master override PIN."
+          }
+        }
+      },
+      "murderChannels": {
+        "cctv": {
+          "title": "Homicide CCTV Frame Enhancement",
+          "cameras": [
+            {
+              "label": "CAM-04 // Display Case Reflection (18:32)",
+              "timestamp": "2024-07-27 18:32:19",
+              "location": "EAST CORRIDOR — ENHANCED",
+              "notes": "Refraction analysis on the hallway glass cabinet reveals the suspect's left wrist wearing a silver chronograph watch and the cuff of a tailored charcoal wool coat—ruling out a standard security uniform.",
+              "clueText": "[MURDER] CCTV Reflection: Suspect wears a silver chronograph watch and tailored charcoal wool coat."
+            },
+            {
+              "label": "CAM-09 // Vault Exit & Wipe (18:41)",
+              "timestamp": "2024-07-27 18:41:09",
+              "location": "SUB-VAULT B — SEALED",
+              "notes": "After engaging the airtight vault lock, the figure uses a coat sleeve to wipe the keypad clean, then exits through the restricted East Loading Dock corridor at 18:44.",
+              "clueText": "[MURDER] CCTV Cam-09 (18:41): Figure wipes the vault keypad with a sleeve and exits toward the East Loading Dock at 18:44."
+            }
+          ],
+          "deepScan": {
+            "id": "murder-deep-cctv",
+            "label": "SYNC LOADING DOCK CAM (-05:00)",
+            "result": "EXTERIOR FOOTAGE: The East Loading Dock camera at 18:44:32 records a silver executive sedan exiting the museum's private staff garage—44 minutes after the Deputy Director claimed to have left the building.",
+            "clueText": "[MURDER] Loading Dock Cam: Silver executive sedan exits the private garage at 18:44, contradicting the 18:00 departure claim."
+          }
+        },
+        "phone": {
+          "title": "Post-Mortem Device & 911 Audio Recovery",
+          "calls": [
+            { "time": "18:40", "contact": "Emergency 911 (Pocket-Dial)", "status": "Recorded Audio (38s — Recovered)" },
+            { "time": "18:45", "contact": "David Reed (Husband)", "status": "Unanswered (Device Inside Vault)" },
+            { "time": "18:20", "contact": "Museum Ext. 402 (Admin Wing)", "status": "Incoming Answered (2m 14s)" }
+          ],
+          "draft": {
+            "time": "18:40 (911 Audio Transcript)",
+            "text": "[AUDIO TRANSCRIPT]: 'Stop! Don't close the vault door—there's no air in here! Please!' [Sound of heavy magnetic bolt engaging, followed by a calm voice: 'The board audit ends tonight.']"
+          },
+          "gps": {
+            "time": "18:41 (Cell Repeater Log)",
+            "coords": "Sub-Basement Repeater: Two mobile devices pinged inside Sub-Vault B at 18:41—Marianne's phone and an administrative executive line. The husband's phone pinged 18 km north at the same timestamp."
+          },
+          "clueText": "[MURDER] 911 Audio (18:40): Perpetrator states 'The board audit ends tonight' as the vault bolt locks; an executive mobile line pinged the sub-basement at 18:41.",
+          "deepScan": {
+            "id": "murder-deep-phone",
+            "label": "ACOUSTIC VOICE COMPARISON (-05:00)",
+            "result": "FORENSIC MATCH (99.6%): Cadence and frequency comparison matches the calm male voice on the 911 tape to recorded boardroom briefings from the Deputy Director's office.",
+            "clueText": "[MURDER] Voice Analysis: 99.6% acoustic match linking the voice on the 911 recording to the Deputy Director's briefings."
+          }
+        },
+        "people": {
+          "title": "Autopsy Findings & Forensic Profiles",
+          "profiles": [
+            {
+              "id": "david",
+              "name": "David Reed",
+              "meta": "Age: 55 | Archival Conservator | Husband",
+              "appearance": "Cooperated fully with forensic garment swabs, shoe-tread impressions, and telecommunications subpoenas.",
+              "bullets": [
+                "CORONER TIMELINE: Autopsy fixes time of death between 19:05 and 19:15 due to hypoxia inside the sealed chamber.",
+                "TELECOM & METER DATA: Home smart-meter activity and cell tower logs place him 18 km away from 17:50 onward.",
+                "TRACE EVIDENCE: Zero brass dust, vault lubricant, or foreign fibers detected on his clothing or footwear."
+              ]
+            },
+            {
+              "id": "julian",
+              "name": "Dr. Julian Vance",
+              "meta": "Age: 49 | Deputy Museum Director | Administration",
+              "appearance": "Wears a tailored charcoal wool suit and a silver chronograph watch with a hinged metal clasp.",
+              "bullets": [
+                "TRACE FIBERS: Microscopic inspection of his watch clasp recovered a snagged burgundy silk thread matching Marianne's scarf.",
+                "SHOE RESIDUE: Traces of aged brass polish from Sub-Vault B's manual wheel were lifted from his leather soles.",
+                "MOTIVE & AUDIT: Internal ledgers show $2.4M in discrepancies under the Aurelian Relic account he supervised."
+              ]
+            },
+            {
+              "id": "arthur",
+              "name": "Arthur Pendelton",
+              "meta": "Age: 62 | Night Security Guard | Facility Operations",
+              "appearance": "Submitted his guard-tour electronic baton, master keyring, and navy uniform for laboratory analysis.",
+              "bullets": [
+                "PATROL LOGS: Electronic checkpoint scans confirm he was in the West Courtyard at 18:38 when the elevator descended.",
+                "ACCESS AUDIT: His guard keycard lacks executive override privileges required to engage the vault's purge lock.",
+                "OBSERVATION: Recalled seeing a silver sedan parked near the restricted loading dock at 18:35."
+              ]
+            }
+          ],
+          "clueText": "[MURDER] Autopsy & Trace Labs: Death occurred at 19:05–19:15; burgundy silk fibers and vault brass residue were recovered from the charcoal suit and watch clasp.",
+          "deepScan": {
+            "id": "murder-deep-people",
+            "label": "SUBPOENA OFFSHORE LEDGERS (-05:00)",
+            "result": "FINANCIAL AUDIT: Bank records uncover a $1,200,000 offshore transfer cleared on July 27 into an account controlled by the Deputy Director for the private sale of the authentic Aurelian Relic.",
+            "clueText": "[MURDER] Financial Audit: $1.2M offshore payment cleared on July 27 to the Deputy Director's account for the stolen relic."
+          }
+        },
+        "location": {
+          "title": "Sub-Vault B & Admin Wing Forensics",
+          "hotspots": [
+            {
+              "id": "vault",
+              "title": "[A] Sub-Vault B Interior",
+              "detail": "Marianne was found collapsed beside the inner pressure door. Under her fingernails, forensics recovered skin cells and dark charcoal wool fibers."
+            },
+            {
+              "id": "corridor",
+              "title": "[B] Exterior Locking Wheel",
+              "detail": "Crime scene technicians lifted three partial latent prints and aged brass dust from the manual locking wheel outside Sub-Vault B."
+            },
+            {
+              "id": "desk",
+              "title": "[C] Admin Wing Shredder",
+              "detail": "Reconstructed paper strips from the executive office shredder form a forged Aurelian Relic certificate bearing an unauthorized deputy approval stamp."
+            }
+          ],
+          "clueText": "[MURDER] Crime Scene Labs: Charcoal wool fibers under victim's nails, latent prints on the outer wheel, and shredded forged certificates in the Admin Wing.",
+          "deepScan": {
+            "id": "murder-deep-location",
+            "label": "RUN CODIS & FIBER MATCH (-05:00)",
+            "result": "CONCLUSIVE LAB REPORT: Both the latent prints on Sub-Vault B's locking wheel and the DNA/charcoal wool fibers under Marianne's fingernails match the Deputy Director (1 in 9 billion).",
+            "clueText": "[MURDER] Lab Report: DNA, latent prints, and wool fibers confirm the Deputy Director sealed Sub-Vault B."
+          }
+        }
+      },
+      "suspects": [
+        {
+          "id": "david",
+          "name": "David Reed",
+          "role": "Husband // Archival Conservator (Age 55)",
+          "alibi": "States he left the museum at 17:30 to prepare dinner at home and began calling Marianne at 18:45 before contacting police at 21:00.",
+          "isCulprit": false
+        },
+        {
+          "id": "julian",
+          "name": "Dr. Julian Vance",
+          "role": "Deputy Museum Director (Age 49)",
+          "alibi": "States he left the museum at 18:00 sharp for a downtown donor gala and had no involvement in Marianne's evening audit.",
+          "isCulprit": true
+        },
+        {
+          "id": "arthur",
+          "name": "Arthur Pendelton",
+          "role": "Night Security Guard (Age 62)",
+          "alibi": "Admits stepping away from the front console between 18:30 and 18:45 for a courtyard check, denying entry to Sub-Vault B.",
+          "isCulprit": false
+        }
+      ],
+      "outcomes": {
+        "rescueCorrect": {
+          "badge": "VICTIM RESCUED // CASE SOLVED",
+          "badgeClass": "outcome-rescue",
+          "title": "Marianne Reed Rescued Alive",
+          "subtitle": "You pieced together the physical evidence in time and exposed Dr. Julian Vance before oxygen in Sub-Vault B ran out.",
+          "narrative": "By cross-referencing the executive override PIN on Sub-Vault B, the gold-striped lanyard clasp in the corridor, and the failed gala alibi, police breached the chamber with minutes to spare. Marianne was recovered alive, and Deputy Director Dr. Julian Vance was arrested attempting to destroy the forged Aurelian Relic certificates.",
+          "verdict": "CORRECT"
+        },
+        "rescueWrong": {
+          "badge": "WRONG SUSPECT // CRITICAL DELAY",
+          "badgeClass": "outcome-fail",
+          "title": "False Accusation Cost Crucial Time",
+          "subtitle": "While police detained the wrong suspect, the perpetrator erased the vault logs and fled.",
+          "narrative": "Acting on incomplete deductions, investigators detained an innocent person. By the time the discrepancy in the executive override log was uncovered, the airtight seal on Sub-Vault B had depleted its oxygen reserve and Dr. Julian Vance had vanished with the forged relic documents.",
+          "verdict": "WRONG"
+        },
+        "murderCorrect": {
+          "badge": "MURDER INVESTIGATION // KILLER CAUGHT",
+          "badgeClass": "outcome-murder",
+          "title": "Justice Served — Dr. Julian Vance Arrested",
+          "subtitle": "Though the rescue window expired, you connected the forensic evidence and brought the killer to justice.",
+          "narrative": "After Marianne was found deceased inside Sub-Vault B, your investigation linked the 911 recording, the loading dock footage, the charcoal wool fibers, and the latent prints on the manual locking wheel to Deputy Director Dr. Julian Vance. Confronted with the lab and financial audit reports, he was arrested for murder and art fraud.",
+          "verdict": "CORRECT"
+        },
+        "murderWrong": {
+          "badge": "MURDER INVESTIGATION // COLD CASE",
+          "badgeClass": "outcome-fail",
+          "title": "Case Unsolved — Killer Escaped",
+          "subtitle": "Even with post-mortem forensics, the wrong suspect was accused and the real killer walked free.",
+          "narrative": "Despite physical evidence pointing to the executive override lock, the silver chronograph watch reflection, and the Admin Wing shredder, your final accusation targeted an innocent person. Dr. Julian Vance fled the country using his offshore funds, leaving Marianne Reed's murder unsolved.",
+          "verdict": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "case-family",
+      "code": "CASE #02",
+      "title": "The Ashworth Will",
+      "status": "OPEN // FAMILY ESTATE",
+      "playable": true,
+      "shortDesc": "Matriarch Eleanor Ashworth vanishes during a stormy family dinner hours before signing a revised inheritance trust.",
+      "victim": {
+        "id": "eleanor",
+        "name": "Eleanor Ashworth",
+        "age": 64,
+        "occupation": "Estate Matriarch & Philanthropist, Ashworth Manor",
+        "lastSeen": "October 14, 2024 — 20:15 (Ashworth Manor West Library)",
+        "reportedBy": "Lucas Ashworth (Son) at 22:30"
+      },
+      "briefingSummary": "During an autumn storm on October 14, 2024, 64-year-old matriarch Eleanor Ashworth gathered her family at Ashworth Manor to announce a revised estate trust removing one beneficiary at midnight. At 20:15, she entered the West Library to finalize the papers and vanished. Below the manor lies a sealed Subterranean Wine Cellar equipped with an automated CO2 fire-suppression system—and the pressure seal has just been triggered.",
+      "blueprintTitle": "BLUEPRINT // ASHWORTH MANOR (CLICK [A], [B], OR [C])",
+      "blueprintRooms": ["WEST LIBRARY", "SERVICE STAIRS", "WINE CELLAR"],
+      "channels": {
+        "cctv": {
+          "title": "Manor Security Cameras (CCTV)",
+          "cameras": [
+            {
+              "label": "CAM-02 // West Library Hallway (20:16)",
+              "timestamp": "2024-10-14 20:16:08",
+              "location": "WEST LIBRARY HALL",
+              "notes": "Eleanor Ashworth walks into the West Library carrying a leather-bound trust ledger. Six minutes later, a figure wearing a dark rain-slicked coat and mud-caked boots approaches from the garden side door.",
+              "clueText": "[RESCUE] CCTV Cam-02 (20:16): Figure in a dark rain coat and muddy boots entered from the garden side door minutes after Eleanor."
+            },
+            {
+              "label": "CAM-07 // Cellar Service Stairwell (20:23)",
+              "timestamp": "2024-10-14 20:23:44",
+              "location": "WINE CELLAR ACCESS",
+              "notes": "Two silhouettes descend the stone stairwell toward the Subterranean Wine Cellar. Seconds later, a single figure rushes back up alone and triggers the electronic CO2 climate-lock switch.",
+              "clueText": "[RESCUE] CCTV Cam-07 (20:23): Sole figure exits the cellar stairs and engages the electronic CO2 climate-lock switch."
+            }
+          ],
+          "deepScan": {
+            "id": "c2-deep-cctv",
+            "label": "ZOOM FOOTWEAR & SLEEVE (-05:00)",
+            "result": "FRAME ENHANCEMENT: The suspect's boots are green rubber botanical wellingtons caked in dark peat soil—not red driveway clay—and a pale jade bracelet glints beneath the left cuff.",
+            "clueText": "[RESCUE] CCTV Zoom: Suspect wears green botanical boots with peat soil and a pale jade bracelet on the left wrist."
+          }
+        },
+        "phone": {
+          "title": "Mobile & Manor Intercom Logs",
+          "calls": [
+            { "time": "21:40", "contact": "Lucas Ashworth (Son)", "status": "Missed Call (0s)" },
+            { "time": "21:05", "contact": "Lucas Ashworth (Son)", "status": "Missed Call (0s)" },
+            { "time": "20:02", "contact": "Family Estate Attorney", "status": "Outgoing Call (4m 18s)" },
+            { "time": "19:45", "contact": "Conservatory Ext. 12", "status": "Incoming Answered (1m 05s)" }
+          ],
+          "draft": {
+            "time": "20:18 (Unsent Note on Tablet)",
+            "text": "The forensic accountant confirmed that $950,000 was siphoned from the Ashworth Botanical Trust using forged greenhouse supply invoices. I am confronting the person responsible before midnight—"
+          },
+          "gps": {
+            "time": "20:26 (Wi-Fi Node Disconnect)",
+            "coords": "Manor Sub-Level Node B — Wine Cellar Vault (Signal lost when heavy oak-and-steel door sealed)"
+          },
+          "clueText": "[RESCUE] Device Forensics: Unsent 20:18 note reveals $950,000 was embezzled from the Botanical Trust via forged greenhouse invoices.",
+          "deepScan": {
+            "id": "c2-deep-phone",
+            "label": "AUDIT MANOR WI-FI LOGS (-05:00)",
+            "result": "NETWORK TELEMETRY: Lucas's laptop maintained an active 52-minute encrypted video conference in the East Billiard Room from 20:04 to 20:56, accounting for his whereabouts during the 20:23 cellar lockdown.",
+            "clueText": "[RESCUE] Wi-Fi Logs: Lucas's laptop was active on a live video call in the East Wing from 20:04 to 20:56."
+          }
+        },
+        "people": {
+          "title": "Family & Household Statements",
+          "profiles": [
+            {
+              "id": "lucas",
+              "name": "Lucas Ashworth",
+              "meta": "Age: 36 | Eldest Son | Real Estate Developer",
+              "appearance": "Tailored navy blazer, silver signet ring, polished loafers stained with red driveway clay; visibly agitated.",
+              "bullets": [
+                "Reported Eleanor missing at 22:30 after she failed to appear for midnight trust signing preparations.",
+                "Admitted arguing with Eleanor at 17:00 over his stalled coastal property project.",
+                "Stated he stayed in the East Billiard Room from 20:00 to 21:00 on a teleconference with overseas investors."
+              ]
+            },
+            {
+              "id": "claire",
+              "name": "Clara Ashworth-Lin",
+              "meta": "Age: 33 | Adopted Daughter | Botanical Chemist & Trust Director",
+              "appearance": "Plum cardigan over a dark raincoat, pale jade bangle on her left wrist, calm and measured tone.",
+              "bullets": [
+                "Manages the family's commercial rare-orchid conservatory and signs off on Botanical Trust supply budgets.",
+                "Claimed she walked out to the Glass Conservatory at 20:10 to adjust storm heaters and returned at 20:50.",
+                "Stated she was unaware Eleanor had requested an external audit of the greenhouse accounts."
+              ]
+            },
+            {
+              "id": "victor",
+              "name": "Victor Hale",
+              "meta": "Age: 58 | Estate Caretaker & Groundskeeper | Staff",
+              "appearance": "Olive canvas work jacket, heavy brass keyring on belt, weathered hands.",
+              "bullets": [
+                "Maintains the manor's electrical grid, boiler house, and antique wine cellar deadbolts.",
+                "Stated he was inside the detached Boiler Shed from 20:05 to 20:45 resetting storm-tripped circuit breakers.",
+                "Noted that the Wine Cellar's electronic CO2 purge lock can only be activated by a family member's smart keycard."
+              ]
+            }
+          ],
+          "clueText": "[RESCUE] Statements: Lucas was in the East Wing; Clara claims she was in the Conservatory from 20:10–20:50; Victor was in the Boiler Shed.",
+          "deepScan": {
+            "id": "c2-deep-people",
+            "label": "CHECK GREENHOUSE & GRID LOGS (-05:00)",
+            "result": "SENSOR AUDIT: Automated Conservatory door sensors show zero entry or exit between 20:00 and 21:00—contradicting the greenhouse alibi. Meanwhile, power grid logs confirm the Boiler Shed breaker was manually reset at 20:23.",
+            "clueText": "[RESCUE] Sensor Audit: Conservatory door never opened between 20:00–21:00; Boiler Shed breaker reset at 20:23 confirms Victor's alibi."
+          }
+        },
+        "location": {
+          "title": "Scene Inspection: West Library & Wine Cellar",
+          "hotspots": [
+            {
+              "id": "library",
+              "title": "[A] West Library Desk",
+              "detail": "Eleanor's reading glasses, fountain pen, and unsigned trust pages remain spread across the blotter. A cup of herbal tea is still warm, showing she left abruptly."
+            },
+            {
+              "id": "stairs",
+              "title": "[B] Service Stairwell",
+              "detail": "Damp peat moss clumps and crushed white orchid petals trail from the garden side entrance down toward the Wine Cellar door."
+            },
+            {
+              "id": "cellar",
+              "title": "[C] Wine Cellar Door",
+              "detail": "The heavy reinforced door is sealed via electronic CO2 fire-suppression override. Interior oxygen concentration has dropped to 13%."
+            }
+          ],
+          "clueText": "[RESCUE] Scene Scan: Glasses left on library desk; peat moss and crushed orchid petals lead to the Wine Cellar, locked via electronic CO2 override.",
+          "deepScan": {
+            "id": "c2-deep-location",
+            "label": "READ CELLAR KEYCARD LOG (-05:00)",
+            "result": "KEYCARD DIAGNOSTIC: The mechanical brass deadbolt was untouched; the Wine Cellar was locked electronically at 20:24 using a family member's Conservatory-assigned smart keycard.",
+            "clueText": "[RESCUE] Keycard Log: Wine Cellar was locked electronically using a Conservatory-assigned family smart keycard."
+          }
+        }
+      },
+      "murderChannels": {
+        "cctv": {
+          "title": "Homicide CCTV Frame Enhancement",
+          "cameras": [
+            {
+              "label": "CAM-07 // Brass Rack Reflection (20:24)",
+              "timestamp": "2024-10-14 20:24:11",
+              "location": "WINE CELLAR — ENHANCED",
+              "notes": "Specular reflection off the cellar's polished brass wine rack captures a left-handed individual wearing a pale jade bangle and green botanical boots entering the lockdown PIN, then wiping the keypad with a floral silk handkerchief.",
+              "clueText": "[MURDER] CCTV Reflection: Left-handed suspect wearing a pale jade bangle and botanical boots wipes the cellar keypad."
+            },
+            {
+              "label": "CAM-02 // Library Return & Shredder (20:28)",
+              "timestamp": "2024-10-14 20:28:50",
+              "location": "WEST LIBRARY — POST-LOCK",
+              "notes": "Four minutes after sealing the cellar, the same figure returns to the West Library, removes the revised inheritance pages from Eleanor's folder, and feeds them into the study fireplace.",
+              "clueText": "[MURDER] CCTV Cam-02 (20:28): Perpetrator returns to the West Library and burns the revised inheritance trust pages."
+            }
+          ],
+          "deepScan": {
+            "id": "c2-murder-deep-cctv",
+            "label": "ENHANCE GARDEN DOOR CAM (-05:00)",
+            "result": "THERMAL & PIXEL ZOOM: Exterior garden camera at 20:31 records the figure discarding a pair of latex botanical gloves into the rainwater cistern behind the Conservatory.",
+            "clueText": "[MURDER] Garden Cam: Records the suspect tossing latex botanical gloves into the rainwater cistern at 20:31."
+          }
+        },
+        "phone": {
+          "title": "Post-Mortem Intercom & Device Forensics",
+          "calls": [
+            { "time": "20:25", "contact": "Manor House Intercom (Line 4)", "status": "Auto-Logged Buffer (42s — Recovered)" },
+            { "time": "21:05", "contact": "Lucas Ashworth (Son)", "status": "Unanswered (Device Inside Cellar)" },
+            { "time": "20:02", "contact": "Family Estate Attorney", "status": "Requested Immediate Trust Revision" }
+          ],
+          "draft": {
+            "time": "20:25 (House Intercom Recording)",
+            "text": "[AUDIO TRANSCRIPT]: 'Open this door! The CO2 vent is sealed—I can't breathe!' [Heavy magnetic bolt clicks shut, followed by a calm female voice: 'You never treated me like real blood anyway. The trust stays mine.']"
+          },
+          "gps": {
+            "time": "20:24 (Smart-Keycard & Cell Ping)",
+            "coords": "Sub-Level Cellar Repeater: Both Eleanor's tablet and the Conservatory Director's personal mobile pinged directly beneath the West Library at 20:24."
+          },
+          "clueText": "[MURDER] Intercom Audio (20:25): Female voice states 'You never treated me like real blood anyway' as the cellar bolt locks; Conservatory mobile pinged the cellar at 20:24.",
+          "deepScan": {
+            "id": "c2-murder-deep-phone",
+            "label": "VOICEPRINT SPECTROGRAM (-05:00)",
+            "result": "FORENSIC MATCH (99.4%): Acoustic spectrogram matches the female voice on the 20:25 intercom buffer to recorded botanical lecture audio from the Conservatory Director.",
+            "clueText": "[MURDER] Voiceprint Match: 99.4% biometric match linking the intercom voice to the Conservatory Director."
+          }
+        },
+        "people": {
+          "title": "Autopsy Findings & Forensic Profiles",
+          "profiles": [
+            {
+              "id": "lucas",
+              "name": "Lucas Ashworth",
+              "meta": "Age: 36 | Eldest Son | Real Estate Developer",
+              "appearance": "Submitted his loafers, signet ring, and laptop logs for forensic inspection.",
+              "bullets": [
+                "CORONER TIMELINE: Autopsy fixes time of death at 20:55 due to CO2 asphyxiation inside the sealed cellar.",
+                "DIGITAL ALIBI: Encrypted video conference logs and East Wing router telemetry confirm he never left the Billiard Room between 20:04 and 20:56.",
+                "TRACE LABS: Only red driveway clay was found on his shoes; zero peat soil or cellar valve residue."
+              ]
+            },
+            {
+              "id": "claire",
+              "name": "Clara Ashworth-Lin",
+              "meta": "Age: 33 | Adopted Daughter | Botanical Chemist",
+              "appearance": "Wears a pale jade bangle on her left wrist and keeps green botanical boots in the mudroom.",
+              "bullets": [
+                "TRACE RESIDUE: Microscopic green chlorophyll, peat moss, and white orchid pollen were lifted from her cuffs and boots.",
+                "KEYCARD & MOTIVE: Forensic audit links the $950,000 embezzled Botanical Trust funds to an offshore shell company she registered.",
+                "ALIBI REFUTED: Conservatory magnetic door sensors prove she never entered the greenhouse during the storm."
+              ]
+            },
+            {
+              "id": "victor",
+              "name": "Victor Hale",
+              "meta": "Age: 58 | Estate Caretaker & Groundskeeper | Staff",
+              "appearance": "Provided his master brass keyring, work jacket, and Boiler Shed maintenance logs.",
+              "bullets": [
+                "KEY AUDIT: Laboratory microscopy confirms the brass cellar deadbolt key had not been inserted into a lock for weeks.",
+                "ELECTRICAL LOGS: Utility telemetry proves he was manually resetting storm breakers in the detached Boiler Shed at 20:23 and 20:39."
+              ]
+            }
+          ],
+          "clueText": "[MURDER] Autopsy & Trace Labs: Death occurred at 20:55 from CO2 asphyxiation; orchid pollen, peat soil, and $950K embezzlement link to the Botanical Trust Director.",
+          "deepScan": {
+            "id": "c2-murder-deep-people",
+            "label": "SUBPOENA TRUST ACCOUNTS (-05:00)",
+            "result": "FINANCIAL SMOKING GUN: Bank records confirm $950,000 from fake orchid-fertilizer invoices was wired directly to an account controlled by Clara Ashworth-Lin.",
+            "clueText": "[MURDER] Financial Audit: $950,000 in forged greenhouse invoices traced directly to Clara Ashworth-Lin."
+          }
+        },
+        "location": {
+          "title": "Wine Cellar & Cistern Crime Scene Labs",
+          "hotspots": [
+            {
+              "id": "cellar",
+              "title": "[A] Wine Cellar Interior",
+              "detail": "Eleanor was found beside the inner oak door. Under her fingernails, technicians recovered skin cells and plum-colored wool fibers matching a knitted cardigan."
+            },
+            {
+              "id": "keypad",
+              "title": "[B] Exterior CO2 Override Panel",
+              "detail": "Luminol and trace swabs lifted faint silk fibers and peat soil smudges from the keypad bezel where a handkerchief wiped the surface."
+            },
+            {
+              "id": "cistern",
+              "title": "[C] Conservatory Rainwater Cistern",
+              "detail": "Divers recovered a discarded pair of latex botanical gloves coated in cellar door sealant and peat soil from the cistern."
+            }
+          ],
+          "clueText": "[MURDER] Crime Scene Labs: Plum wool fibers under victim's nails and discarded latex botanical gloves coated in cellar sealant found in the cistern.",
+          "deepScan": {
+            "id": "c2-murder-deep-location",
+            "label": "RUN DNA & FIBER MATCH (-05:00)",
+            "result": "CONCLUSIVE LAB REPORT: DNA inside the discarded latex botanical gloves and the plum wool fibers under Eleanor's fingernails match Clara Ashworth-Lin.",
+            "clueText": "[MURDER] Lab Report: DNA inside the discarded botanical gloves and plum wool fibers confirm Clara Ashworth-Lin sealed the cellar."
+          }
+        }
+      },
+      "suspects": [
+        {
+          "id": "lucas",
+          "name": "Lucas Ashworth",
+          "role": "Eldest Son // Real Estate Developer (Age 36)",
+          "alibi": "Claims he remained in the East Billiard Room on an overseas investor video call from 20:00 to 21:00.",
+          "isCulprit": false
+        },
+        {
+          "id": "claire",
+          "name": "Clara Ashworth-Lin",
+          "role": "Adopted Daughter // Botanical Chemist (Age 33)",
+          "alibi": "Claims she walked to the Glass Conservatory at 20:10 to check storm heaters and returned at 20:50.",
+          "isCulprit": true
+        },
+        {
+          "id": "victor",
+          "name": "Victor Hale",
+          "role": "Estate Caretaker & Groundskeeper (Age 58)",
+          "alibi": "States he was in the exterior Boiler Shed repairing storm-tripped circuit breakers from 20:05 to 20:45.",
+          "isCulprit": false
+        }
+      ],
+      "outcomes": {
+        "rescueCorrect": {
+          "badge": "VICTIM RESCUED // CASE SOLVED",
+          "badgeClass": "outcome-rescue",
+          "title": "Eleanor Ashworth Rescued Alive",
+          "subtitle": "You connected the botanical trace evidence and sensor logs in time to save Eleanor before CO2 levels turned fatal.",
+          "narrative": "By cross-referencing the Conservatory door sensors, the peat soil and orchid petals on the cellar stairs, and the Botanical Trust audit note, police bypassed the CO2 lock with minutes to spare. Eleanor Ashworth was revived safely, and Clara Ashworth-Lin was arrested for embezzlement and attempted murder.",
+          "verdict": "CORRECT"
+        },
+        "rescueWrong": {
+          "badge": "WRONG SUSPECT // CRITICAL DELAY",
+          "badgeClass": "outcome-fail",
+          "title": "False Accusation Cost Crucial Time",
+          "subtitle": "While police questioned the wrong person, CO2 levels inside the sealed Wine Cellar reached fatal concentration.",
+          "narrative": "Detaining an innocent suspect delayed the cellar breach. By the time investigators realized the Conservatory door sensors contradicted Clara's alibi, Eleanor Ashworth had succumbed to CO2 asphyxiation and the revised trust pages had been burned.",
+          "verdict": "WRONG"
+        },
+        "murderCorrect": {
+          "badge": "MURDER INVESTIGATION // KILLER CAUGHT",
+          "badgeClass": "outcome-murder",
+          "title": "Justice Served — Clara Ashworth-Lin Arrested",
+          "subtitle": "Though the rescue window expired, you pieced together the forensic lab reports and exposed the killer.",
+          "narrative": "Following Eleanor's death in the Wine Cellar, your investigation linked the 20:25 house intercom recording, the jade bangle reflection, the plum wool fibers, and the discarded botanical gloves in the cistern to Clara Ashworth-Lin. Confronted with the DNA and trust-fraud records, she was arrested for murder.",
+          "verdict": "CORRECT"
+        },
+        "murderWrong": {
+          "badge": "MURDER INVESTIGATION // COLD CASE",
+          "badgeClass": "outcome-fail",
+          "title": "Case Unsolved — Killer Escaped",
+          "subtitle": "Even with post-mortem forensics, the wrong suspect was accused and the real killer walked free.",
+          "narrative": "Despite clear trace evidence linking the botanical boots, intercom voiceprint, and discarded gloves to the Conservatory Director, your final accusation targeted an innocent person. Clara Ashworth-Lin liquidated the offshore trust funds and fled the country.",
+          "verdict": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "case-revenge",
+      "code": "CASE #03",
+      "title": "Ashes of Pier 9",
+      "status": "OPEN // COLD VENGEANCE",
+      "playable": true,
+      "shortDesc": "Chief harbor engineer Dr. Marcus Thorne vanishes on the 7-year anniversary of a fatal pier collapse cover-up.",
+      "victim": {
+        "id": "marcus",
+        "name": "Dr. Marcus Thorne",
+        "age": 52,
+        "occupation": "Chief Structural Engineer, Sterling Harbor Authority",
+        "lastSeen": "November 02, 2024 — 21:10 (Harbor Logistics Tower, Sub-Level Archive)",
+        "reportedBy": "Elena Rostova (Project Coordinator) at 23:00"
+      },
+      "briefingSummary": "On November 2, 2024—exactly seven years to the night after the fatal Pier 9 warehouse collapse that was officially blamed on a deceased crane operator—Chief Structural Engineer Dr. Marcus Thorne returned late to the Harbor Logistics Tower to unseal a restricted box labeled 'PIER-9 // ORIGINAL BLUEPRINTS.' At 21:10, the sub-level industrial refrigeration vault was remotely locked into a -25°C deep-freeze cycle with Marcus trapped inside.",
+      "blueprintTitle": "BLUEPRINT // HARBOR LOGISTICS TOWER (CLICK [A], [B], OR [C])",
+      "blueprintRooms": ["COLD ARCHIVE", "SERVICE STAIRS", "FREEZER VAULT B"],
+      "channels": {
+        "cctv": {
+          "title": "Harbor Tower Security Feeds (CCTV)",
+          "cameras": [
+            {
+              "label": "CAM-03 // Sub-Level Archive Corridor (21:14)",
+              "timestamp": "2024-11-02 21:14:22",
+              "location": "SUB-LEVEL ARCHIVE",
+              "notes": "Four minutes after Dr. Marcus Thorne enters Cold Storage Vault B to retrieve the Pier 9 crates, a figure in a heavy yellow-striped harbor parka enters from the fire stairwell with the hood pulled low.",
+              "clueText": "[RESCUE] CCTV Cam-03 (21:14): Figure in a yellow-striped harbor parka entered the sub-level corridor from the fire stairwell."
+            },
+            {
+              "label": "CAM-08 // Freezer Vault B Control Panel (21:16)",
+              "timestamp": "2024-11-02 21:16:05",
+              "location": "FREEZER VAULT B",
+              "notes": "The hooded figure slams the insulated steel vault door shut, engages the -25°C deep-freeze cycle, and jams the manual emergency release gear with a metal tool before departing.",
+              "clueText": "[RESCUE] CCTV Cam-08 (21:16): Perpetrator engaged the -25°C deep-freeze cycle and jammed the exterior manual release gear."
+            }
+          ],
+          "deepScan": {
+            "id": "c3-deep-cctv",
+            "label": "ENHANCE GAUGE REFLECTION (-05:00)",
+            "result": "PIXEL ENHANCEMENT: Zooming into the stainless-steel pressure gauge reveals a left-handed wrist with a faded anchor-and-chain harbor union tattoo and a safety inspector's multi-tool clipped to the belt.",
+            "clueText": "[RESCUE] CCTV Zoom: Gauge reflection shows a left-handed wrist with a harbor union tattoo and a safety inspector's multi-tool."
+          }
+        },
+        "phone": {
+          "title": "Mobile Forensics (Marcus's Device)",
+          "calls": [
+            { "time": "22:45", "contact": "Elena Rostova (Coordinator)", "status": "Missed Call (0s)" },
+            { "time": "22:15", "contact": "Elena Rostova (Coordinator)", "status": "Missed Call (0s)" },
+            { "time": "20:30", "contact": "Harbor Archive Custodians", "status": "Outgoing Call (3m 10s)" },
+            { "time": "19:50", "contact": "Anonymous Burner Line", "status": "Incoming Answered (1m 42s)" }
+          ],
+          "draft": {
+            "time": "21:12 (Unsent Statement Draft)",
+            "text": "I found the original 2017 Pier 9 structural stress-test report hidden in Vault B. The steel-beam inspection sign-off was falsified after the collapse, and an innocent crane operator was framed to protect the harbor board—"
+          },
+          "gps": {
+            "time": "21:18 (Last Signal Burst)",
+            "coords": "Harbor Tower Sub-Basement Level 3 — Insulated Freezer Vault B (Signal blocked by steel thermal lining)"
+          },
+          "clueText": "[RESCUE] Phone Forensics: Unsent 21:12 draft reveals the 2017 Pier 9 inspection was falsified and an innocent crane operator was framed.",
+          "deepScan": {
+            "id": "c3-deep-phone",
+            "label": "TRACE 19:50 BURNER CALL (-05:00)",
+            "result": "CELL TOWER TRIANGULATION: The 19:50 call that lured Marcus to the sub-basement originated from the Pier 9 East Breakwater repeater—not the downtown restaurant district.",
+            "clueText": "[RESCUE] Cell Trace: The 19:50 lure call pinged from the Pier 9 East Breakwater repeater."
+          }
+        },
+        "people": {
+          "title": "Connected Persons & Statements",
+          "profiles": [
+            {
+              "id": "elena",
+              "name": "Elena Rostova",
+              "meta": "Age: 32 | Executive Project Coordinator | Harbor Authority",
+              "appearance": "Slate blazer over a white blouse, neat dark ponytail, carrying a tablet with executive schedules.",
+              "bullets": [
+                "Reported Marcus missing at 23:00 after he missed their scheduled 22:15 press-briefing preparation call.",
+                "Confirmed she unlocked the digital archive index for Marcus earlier that afternoon.",
+                "Stated she left the Harbor Logistics Tower at 20:45 via the main lobby turnstile and took a rideshare home."
+              ]
+            },
+            {
+              "id": "gideon",
+              "name": "Gideon Mercer",
+              "meta": "Age: 47 | Harbor Safety Inspector | Former Junior Engineer",
+              "appearance": "Yellow-striped harbor safety parka, steel-toe boots, faded anchor tattoo on left wrist, guarded expression.",
+              "bullets": [
+                "Older brother of Daniel Mercer, the crane operator officially blamed and killed in the 2017 Pier 9 collapse.",
+                "Conducts evening safety inspections across the docks and carries a standard inspector's multi-tool.",
+                "Claimed he was logging cargo manifest terminals on Pier 4 from 21:00 to 22:00 and never entered the tower."
+              ]
+            },
+            {
+              "id": "owen",
+              "name": "Owen Cross",
+              "meta": "Age: 56 | Marine Construction Contractor | Pier 9 Builder",
+              "appearance": "Heavy brown canvas contractor jacket, silver-white hair, gruff and defensive demeanor.",
+              "bullets": [
+                "His firm supplied the structural steel beams for Pier 9 prior to the 2017 collapse.",
+                "Stood to face criminal negligence charges if the original 2017 inspection files were reopened.",
+                "Stated he was dining with suppliers at the Waterfront Grill 4 km away from 20:30 to 22:30."
+              ]
+            }
+          ],
+          "clueText": "[RESCUE] Statements: Elena left at 20:45; Gideon's brother was framed in the 2017 Pier 9 collapse; Owen built Pier 9 and claims he was at a restaurant.",
+          "deepScan": {
+            "id": "c3-deep-people",
+            "label": "VERIFY BADGE, TERMINAL & POS LOGS (-05:00)",
+            "result": "ALIBI AUDIT: Lobby turnstile and rideshare GPS confirm Elena arrived home at 21:08. Restaurant POS receipts and garage cameras confirm Owen's truck remained 4 km away from 20:22 to 22:38. However, Pier 4 terminal logs show zero inspector activity between 21:00 and 22:00.",
+            "clueText": "[RESCUE] Alibi Audit: Elena and Owen verified miles away; Pier 4 terminal logs show zero activity during Gideon's claimed inspection."
+          }
+        },
+        "location": {
+          "title": "Scene Inspection: Cold Archive & Freezer Vault B",
+          "hotspots": [
+            {
+              "id": "archive",
+              "title": "[A] Cold Archive Table",
+              "detail": "Marcus's leather briefcase and wool scarf lie open beside an unsealed crate marked 'PIER-9 // 2017.' Several original blue-line stress charts have been pulled out."
+            },
+            {
+              "id": "stairs",
+              "title": "[B] Fire Stairwell Landing",
+              "detail": "Flakes of red marine rust primer—characteristic of the condemned Pier 9 bulkhead—are tracked from the fire exit toward Freezer Vault B."
+            },
+            {
+              "id": "freezer",
+              "title": "[C] Freezer Vault B Door",
+              "detail": "The digital thermostat is locked at -25°C. The exterior manual release wheel is jammed by a sheared-off flathead screwdriver tip."
+            }
+          ],
+          "clueText": "[RESCUE] Scene Scan: Red rust primer flakes from Pier 9 lead to Freezer Vault B, where the manual release is jammed by a broken screwdriver tip.",
+          "deepScan": {
+            "id": "c3-deep-location",
+            "label": "INSPECT JAMMED TOOL FRAGMENT (-05:00)",
+            "result": "METALLURGY MATCH: The sheared steel tip jammed in the vault release gear is stamped with a Harbor Safety Authority serial prefix—issued exclusively to field safety inspectors.",
+            "clueText": "[RESCUE] Tool Analysis: The broken screwdriver tip bears a Harbor Safety Authority inspector serial stamp."
+          }
+        }
+      },
+      "murderChannels": {
+        "cctv": {
+          "title": "Homicide CCTV Frame Enhancement",
+          "cameras": [
+            {
+              "label": "CAM-08 // Vault Door & Parka Profile (21:16)",
+              "timestamp": "2024-11-02 21:16:12",
+              "location": "FREEZER VAULT B — ENHANCED",
+              "notes": "Contrast enhancement on the yellow-striped harbor parka reveals a custom stitched memorial patch reading 'D.M. 1982–2017' on the inner chest pocket as the suspect forces the vault latch shut.",
+              "clueText": "[MURDER] CCTV Enhancement: Parka inner pocket shows a stitched memorial patch reading 'D.M. 1982–2017'."
+            },
+            {
+              "label": "CAM-11 // Pier 9 East Breakwater Gate (21:24)",
+              "timestamp": "2024-11-02 21:24:40",
+              "location": "PIER 9 GATE — EXTERIOR",
+              "notes": "Eight minutes after Freezer Vault B was locked, exterior harbor cameras capture the same figure walking down the condemned Pier 9 breakwater and tossing a prepaid burner phone into the harbor.",
+              "clueText": "[MURDER] Pier 9 Gate Cam (21:24): Records the perpetrator walking onto Pier 9 and throwing a burner phone into the water."
+            }
+          ],
+          "deepScan": {
+            "id": "c3-murder-deep-cctv",
+            "label": "SYNC PIER 4 & TOWER GATE LOGS (-05:00)",
+            "result": "TIMELINE RECONSTRUCTION: Electronic gate sensors confirm no inspector entered Pier 4 at 21:00; instead, a Harbor Safety Authority pickup truck was parked behind the Logistics Tower from 20:55 to 21:21.",
+            "clueText": "[MURDER] Gate Telemetry: Harbor Safety pickup truck was parked behind the Logistics Tower during the exact window of the murder."
+          }
+        },
+        "phone": {
+          "title": "Post-Mortem Voicemail & Cell Repeater Logs",
+          "calls": [
+            { "time": "21:17", "contact": "Office Voicemail (Auto-Dial)", "status": "Recorded Audio (45s — Recovered)" },
+            { "time": "22:15", "contact": "Elena Rostova (Coordinator)", "status": "Unanswered (Device Frozen)" },
+            { "time": "19:50", "contact": "Anonymous Burner Line", "status": "Lured Victim to Sub-Level" }
+          ],
+          "draft": {
+            "time": "21:17 (Recovered Voicemail Audio)",
+            "text": "[AUDIO TRANSCRIPT]: 'Open the latch! I was going to clear your brother's name tomorrow morning—I have the real 2017 blueprints!' [Heavy steel latch clanks, followed by a raspy voice: 'Seven years too late. You signed the cover-up, and tonight you freeze like he did.']"
+          },
+          "gps": {
+            "time": "21:16 (Cell Repeater Overlap)",
+            "coords": "Tower Sub-Basement Repeater: Both Marcus's device and the Harbor Safety Inspector's duty phone registered on the sub-basement cell sector at 21:16."
+          },
+          "clueText": "[MURDER] Voicemail Audio (21:17): Perpetrator says 'You signed the cover-up, and tonight you freeze like he did'; Inspector's duty phone pinged the sub-basement at 21:16.",
+          "deepScan": {
+            "id": "c3-murder-deep-phone",
+            "label": "VOICEPRINT & BURNER IMEI TRACE (-05:00)",
+            "result": "FORENSIC MATCH (99.5%): Voiceprint analysis matches the raspy male voice on the 21:17 voicemail to Gideon Mercer's harbor safety radio transmissions, and the burner phone was purchased with cash near his residence.",
+            "clueText": "[MURDER] Voiceprint Match: 99.5% match linking the 21:17 voicemail voice to Gideon Mercer."
+          }
+        },
+        "people": {
+          "title": "Autopsy Findings & Forensic Profiles",
+          "profiles": [
+            {
+              "id": "elena",
+              "name": "Elena Rostova",
+              "meta": "Age: 32 | Executive Project Coordinator | Harbor Authority",
+              "appearance": "Provided turnstile logs, rideshare GPS records, and office keycard audit.",
+              "bullets": [
+                "CORONER TIMELINE: Autopsy fixes time of death at 21:50 due to severe hypothermia inside the -25°C chamber.",
+                "VERIFIED ALIBI: Lobby turnstile logs and rideshare GPS prove she exited the building at 20:46 and was 12 km away at 21:16."
+              ]
+            },
+            {
+              "id": "gideon",
+              "name": "Gideon Mercer",
+              "meta": "Age: 47 | Harbor Safety Inspector | Former Junior Engineer",
+              "appearance": "Yellow-striped harbor parka with a broken multi-tool in his belt pouch and red rust primer on his steel-toe soles.",
+              "bullets": [
+                "TOOL MATCH: The flathead driver blade on his inspector multi-tool is freshly snapped—matching the metal tip jammed in Vault B's release gear.",
+                "MOTIVE & EVIDENCE: Carried a folded 2017 newspaper clipping blaming his brother Daniel Mercer for the Pier 9 disaster.",
+                "BOOT TRACE: Red marine rust primer on his soles matches the flakes outside Freezer Vault B."
+              ]
+            },
+            {
+              "id": "owen",
+              "name": "Owen Cross",
+              "meta": "Age: 56 | Marine Construction Contractor | Pier 9 Builder",
+              "appearance": "Cooperated with restaurant witnesses, POS timestamps, and downtown parking camera checks.",
+              "bullets": [
+                "VERIFIED ALIBI: Restaurant POS timestamps and parking garage LPR cameras confirm he remained 4 km away from 20:22 to 22:38.",
+                "TRACE LABS: Zero marine rust primer or sub-basement residue found on his boots or vehicle."
+              ]
+            }
+          ],
+          "clueText": "[MURDER] Autopsy & Trace Labs: Death occurred at 21:50 from hypothermia; Gideon Mercer's snapped multi-tool and rust-stained boots match the vault crime scene.",
+          "deepScan": {
+            "id": "c3-murder-deep-people",
+            "label": "MATCH SNAPPED MULTI-TOOL (-05:00)",
+            "result": "TOOLMARK MICROSCOPY: Striation marks on the broken screwdriver tip recovered from Freezer Vault B match Gideon Mercer's snapped multi-tool blade with 100% mechanical alignment.",
+            "clueText": "[MURDER] Toolmark Report: 100% mechanical match between the jammed vault fragment and Gideon Mercer's multi-tool."
+          }
+        },
+        "location": {
+          "title": "Freezer Vault B & Pier 9 Forensics",
+          "hotspots": [
+            {
+              "id": "freezer",
+              "title": "[A] Freezer Vault B Interior",
+              "detail": "Dr. Marcus Thorne was found frozen near the insulated door, clutching the 2017 Pier 9 stress report. Yellow synthetic parka fibers were caught on the door's outer rubber gasket."
+            },
+            {
+              "id": "gear",
+              "title": "[B] Jammed Release Mechanism",
+              "detail": "Technicians extracted a sheared steel screwdriver tip stamped with Inspector Serial #HSI-14 and lifted industrial grease mixed with Pier 9 red rust primer."
+            },
+            {
+              "id": "breakwater",
+              "title": "[C] Pier 9 Memorial Plaque",
+              "detail": "At the end of Pier 9 where the burner phone was discarded, investigators found a freshly lit candle beside the memorial plaque for crane operator Daniel Mercer."
+            }
+          ],
+          "clueText": "[MURDER] Crime Scene Labs: Yellow parka fibers on the vault gasket, Serial #HSI-14 tool tip in the release gear, and a fresh candle at Daniel Mercer's Pier 9 plaque.",
+          "deepScan": {
+            "id": "c3-murder-deep-location",
+            "label": "RUN FIBER & SERIAL AUDIT (-05:00)",
+            "result": "CONCLUSIVE LAB REPORT: Inspector Serial #HSI-14 is registered exclusively to Gideon Mercer, and the yellow synthetic fibers on the vault gasket match his harbor parka.",
+            "clueText": "[MURDER] Lab Report: Serial #HSI-14 and parka fibers confirm Gideon Mercer locked Dr. Marcus Thorne inside Freezer Vault B."
+          }
+        }
+      },
+      "suspects": [
+        {
+          "id": "elena",
+          "name": "Elena Rostova",
+          "role": "Executive Project Coordinator // Harbor Authority (Age 32)",
+          "alibi": "States she exited the Harbor Logistics Tower at 20:45 via the main turnstile and took a rideshare home before calling police at 23:00.",
+          "isCulprit": false
+        },
+        {
+          "id": "gideon",
+          "name": "Gideon Mercer",
+          "role": "Harbor Safety Inspector // Brother of 2017 Victim (Age 47)",
+          "alibi": "Claims he was logging cargo manifest terminals on Pier 4 from 21:00 to 22:00 and never entered the Logistics Tower.",
+          "isCulprit": true
+        },
+        {
+          "id": "owen",
+          "name": "Owen Cross",
+          "role": "Marine Construction Contractor // Pier 9 Builder (Age 56)",
+          "alibi": "Claims he was dining with suppliers at the Waterfront Grill 4 km away from 20:30 to 22:30.",
+          "isCulprit": false
+        }
+      ],
+      "outcomes": {
+        "rescueCorrect": {
+          "badge": "VICTIM RESCUED // CASE SOLVED",
+          "badgeClass": "outcome-rescue",
+          "title": "Dr. Marcus Thorne Rescued Alive",
+          "subtitle": "You connected the Pier 9 revenge motive and inspector tool stamp in time to unjam Freezer Vault B.",
+          "narrative": "By cross-referencing the Harbor Safety Inspector serial stamp on the jammed screwdriver tip, the Pier 9 rust primer flakes, and the failed Pier 4 terminal alibi, harbor rescue teams cut open Freezer Vault B before hypothermia set in. Dr. Marcus Thorne survived to clear Daniel Mercer's name publicly, while Gideon Mercer was arrested.",
+          "verdict": "CORRECT"
+        },
+        "rescueWrong": {
+          "badge": "WRONG SUSPECT // CRITICAL DELAY",
+          "badgeClass": "outcome-fail",
+          "title": "False Accusation Cost Crucial Time",
+          "subtitle": "While police detained the wrong suspect, the -25°C deep-freeze cycle proved fatal inside Vault B.",
+          "narrative": "Detaining an innocent suspect delayed the emergency breach of Freezer Vault B. By the time investigators traced the Harbor Safety serial stamp on the broken multi-tool tip, Dr. Marcus Thorne had succumbed to severe hypothermia.",
+          "verdict": "WRONG"
+        },
+        "murderCorrect": {
+          "badge": "MURDER INVESTIGATION // KILLER CAUGHT",
+          "badgeClass": "outcome-murder",
+          "title": "Justice Served — Gideon Mercer Arrested",
+          "subtitle": "Though the rescue window expired, you pieced together the toolmark and voicemail forensics to catch the killer.",
+          "narrative": "After Dr. Marcus Thorne was found deceased inside Freezer Vault B, your investigation linked the 21:17 voicemail recording, the snapped multi-tool blade, the Pier 9 rust primer, and the memorial candle at Pier 9 to Gideon Mercer. Confronted with the forensic toolmark match, he confessed to avenging his brother.",
+          "verdict": "CORRECT"
+        },
+        "murderWrong": {
+          "badge": "MURDER INVESTIGATION // COLD CASE",
+          "badgeClass": "outcome-fail",
+          "title": "Case Unsolved — Killer Escaped",
+          "subtitle": "Even with post-mortem forensics, the wrong suspect was accused and the real killer walked free.",
+          "narrative": "Despite physical evidence linking the snapped inspector multi-tool, the 21:17 voicemail, and the Pier 9 memorial candle to Gideon Mercer, your final accusation targeted an innocent person. Gideon Mercer vanished aboard an outbound cargo vessel.",
+          "verdict": "WRONG"
+        }
+      }
+    }
+  ]
+}

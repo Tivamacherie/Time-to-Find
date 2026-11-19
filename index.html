@@ -1,13 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#121416" />
-    <title>Time to Find | Investigation Desk</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASE: TIME TO FIND [1994 VGA EDITION]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="crt-enabled">
+  <div class="crt-scanlines"></div>
+  <div class="crt-vignette"></div>
+
+  <!-- Top Retro OS Taskbar -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="status-dot"></span>
+      <span class="brand-title">CASE: TIME TO FIND</span>
+      <span class="brand-sub">[DOS-VGA v2.0 // FULL-STACK]</span>
+    </div>
+    <div class="header-controls">
+      <span id="api-status-badge" class="btn-pixel btn-sm" style="cursor:default;color:var(--accent-cyan);">API: CONNECTING...</span>
+      <button id="btn-crt-toggle" class="btn-pixel btn-sm" title="Toggle CRT Scanlines">CRT: ON</button>
+      <button id="btn-sound-toggle" class="btn-pixel btn-sm" title="Toggle 8-Bit Audio">SFX: ON</button>
+      <button id="btn-home-nav" class="btn-pixel btn-sm hidden" title="Return to Title">⌂ MENU</button>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <!-- SCREEN 1: 90s TITLE SCREEN -->
+    <section id="screen-home" class="screen active">
+      <div class="hero-card pixel-box">
+        <div class="window-titlebar">
+          <span>DETECTIVE_OS.EXE — 640x480 256-COLOR VGA</span>
+          <span>[■][□][X]</span>
+        </div>
+        <div class="hero-body">
+          <div class="badge-tag">★ 1994 INTERACTIVE MYSTERY ADVENTURE ★</div>
+          <h1 class="game-title">CASE:<br />TIME TO FIND</h1>
+          <p class="game-tagline">&gt; EVERY SECOND MATTERS. &lt;</p>
+          <p class="hero-desc">
+            Assume the badge of Lead Investigator. Inspect grainy CCTV tapes,
+            mobile call logs, witness statements, and crime scene blueprints
+            before the 30-minute clock hits 00:00—and a rescue turns into a murder case.
+          </p>
+          <div class="hero-actions">
+            <button id="btn-start-game" class="btn-pixel btn-cyan btn-lg blink-hover">
+              ► PRESS START / ENTER TERMINAL
+            </button>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-item pixel-inset">
+              <span class="metric-val">30:00</span>
+              <span class="metric-label">TIME LIMIT</span>
+            </div>
+            <div class="metric-item pixel-inset">
+              <span class="metric-val">-05:00</span>
+              <span class="metric-label">PER ACTION</span>
+            </div>
+            <div class="metric-item pixel-inset">
+              <span class="metric-val">4 MODES</span>
+              <span class="metric-label">CLUE SOURCES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: CASE SELECTION -->
+    <section id="screen-cases" class="screen">
+      <div class="section-header">
+        <div>
+          <span class="step-label">DIR C:\CASES\ACTIVE&gt;</span>
+          <h2>SELECT MISSING-PERSON FILE</h2>
+        </div>
+        <p class="section-hint">Select an open floppy disk dossier to begin field investigation.</p>
+      </div>
+
+      <div id="case-list" class="case-grid"></div>
+    </section>
+
+    <!-- SCREEN 3: CASE BRIEFING -->
+    <section id="screen-briefing" class="screen">
+      <div class="section-header">
+        <div>
+          <span class="step-label">FILE // INITIAL_DOSSIER.TXT</span>
+          <h2 id="briefing-title">Case Briefing</h2>
+        </div>
+        <button id="btn-back-cases" class="btn-pixel">◄ BACK TO FILES</button>
+      </div>
+
+      <div class="briefing-layout">
+        <div class="victim-card pixel-box">
+          <div class="panel-header">SUBJECT_PHOTO.BMP</div>
+          <div id="briefing-victim-portrait" class="portrait-frame pixel-inset"></div>
+          <h3 id="briefing-victim-name">Marianne Reed</h3>
+          <ul id="briefing-victim-meta" class="meta-list"></ul>
+        </div>
+
+        <div class="briefing-details pixel-box">
+          <div class="panel-header">INCIDENT_REPORT // 27-JUL-2024</div>
+          <p id="briefing-summary" class="summary-text"></p>
+
+          <div class="alert-box">
+            <strong>[!] TIME PROTOCOL WARNING:</strong><br />
+            You have exactly <strong>30:00</strong> on the digital clock.
+            Examining a new channel or running a Deep Scan deducts <strong>05:00</strong>.
+            If time hits <code>00:00</code>, the victim will not survive—escalating
+            the file into a <strong>MURDER INVESTIGATION</strong>.
+          </div>
+
+          <div class="briefing-footer">
+            <button id="btn-begin-investigation" class="btn-pixel btn-cyan btn-lg">
+              START CLOCK (30:00) ►
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: INVESTIGATION HUB -->
+    <section id="screen-investigation" class="screen">
+      <!-- Retro HUD Bar -->
+      <div class="hud-bar pixel-box">
+        <div class="hud-case">
+          <span class="hud-label">ACTIVE DOSSIER</span>
+          <strong id="hud-case-name">CASE #01: MARIANNE</strong>
+        </div>
+
+        <div class="hud-status">
+          <span class="hud-label">STATUS</span>
+          <span id="hud-case-stage" class="stage-badge stage-rescue">MISSING PERSON // RESCUE</span>
+        </div>
+
+        <div class="hud-timer-box pixel-inset">
+          <span class="hud-label">CLOCK</span>
+          <div id="hud-timer" class="timer-display">30:00</div>
+        </div>
+      </div>
+
+      <!-- Escalation Banner (Appears when timer hits 00:00) -->
+      <div id="escalation-banner" class="escalation-banner hidden">
+        <div class="escalation-icon">[!]</div>
+        <div>
+          <strong>CRITICAL ALERT: TIME EXPIRED (00:00)</strong>
+          <p>Rescue window closed. Marianne Reed was found deceased in Sub-Vault B. Status upgraded to <strong>MURDER INVESTIGATION</strong>. Identify the killer now.</p>
+        </div>
+      </div>
+
+      <!-- 4 Investigation Channels -->
+      <div class="channels-grid">
+        <button class="channel-card pixel-box" data-channel="cctv">
+          <div class="channel-top">
+            <span class="channel-icon">[CAM]</span>
+            <span class="channel-cost" id="cost-cctv">-05:00</span>
+          </div>
+          <h3>CCTV</h3>
+          <p>Inspect low-res security tapes &amp; timestamps.</p>
+          <span class="channel-status" id="status-cctv">&gt; UNEXAMINED</span>
+        </button>
+
+        <button class="channel-card pixel-box" data-channel="phone">
+          <div class="channel-top">
+            <span class="channel-icon">[TEL]</span>
+            <span class="channel-cost" id="cost-phone">-05:00</span>
+          </div>
+          <h3>PHONE</h3>
+          <p>Trace call logs, unsent drafts &amp; tower pings.</p>
+          <span class="channel-status" id="status-phone">&gt; UNEXAMINED</span>
+        </button>
+
+        <button class="channel-card pixel-box" data-channel="people">
+          <div class="channel-top">
+            <span class="channel-icon">[BIO]</span>
+            <span class="channel-cost" id="cost-people">-05:00</span>
+          </div>
+          <h3>PEOPLE</h3>
+          <p>Interrogate David Reed &amp; museum staff.</p>
+          <span class="channel-status" id="status-people">&gt; UNEXAMINED</span>
+        </button>
+
+        <button class="channel-card pixel-box" data-channel="location">
+          <div class="channel-top">
+            <span class="channel-icon">[MAP]</span>
+            <span class="channel-cost" id="cost-location">-05:00</span>
+          </div>
+          <h3>LOCATION</h3>
+          <p>Scan Conservation Wing &amp; Sub-Vault B map.</p>
+          <span class="channel-status" id="status-location">&gt; UNEXAMINED</span>
+        </button>
+      </div>
+
+      <!-- Main Investigation Workspace + Clue Log -->
+      <div class="workspace-grid">
+        <div id="investigation-viewer" class="pixel-box viewer-panel">
+          <div class="empty-viewer">
+            <div class="empty-icon">[ ? ]</div>
+            <h3>SELECT AN INVESTIGATION CHANNEL</h3>
+            <p>Each new channel consumes <strong>05:00</strong>. Cross-reference CCTV, Phone, People, and Location clues before accusing a suspect.</p>
+          </div>
+        </div>
+
+        <aside class="pixel-box clues-panel">
+          <div>
+            <div class="panel-header">
+              <span>NOTEPAD.LOG</span>
+              <span id="clue-count-badge" class="badge-pill">0 CLUES</span>
+            </div>
+            <ul id="clue-log-list" class="clue-list">
+              <li class="clue-placeholder">&gt; Notepad empty. Select a channel to log clues...</li>
+            </ul>
+          </div>
+          <div class="clues-footer">
+            <button id="btn-go-suspects" class="btn-pixel btn-red btn-block">
+              ACCUSE SUSPECT ►
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: SUSPECT SELECTION -->
+    <section id="screen-suspects" class="screen">
+      <div class="section-header">
+        <div>
+          <span class="step-label">STEP 04 // LINEUP_ID.EXE</span>
+          <h2 id="suspect-screen-title">SUSPECT SELECTION</h2>
+        </div>
+        <button id="btn-back-investigation" class="btn-pixel">◄ RETURN TO EVIDENCE</button>
+      </div>
+
+      <p class="section-hint">
+        Click a suspect's pixel portrait to lock in your accusation. Choose wisely.
+      </p>
+
+      <!-- Immediate Feedback Banner -->
+      <div id="suspect-feedback" class="feedback-banner hidden"></div>
+
+      <div id="suspect-grid" class="suspect-grid"></div>
+    </section>
+
+    <!-- SCREEN 6: STORY OUTCOME -->
+    <section id="screen-outcome" class="screen">
+      <div class="outcome-card pixel-box">
+        <div class="window-titlebar">
+          <span>CASE_REPORT_FINAL.TXT</span>
+          <span>[END]</span>
+        </div>
+        <div class="outcome-body">
+          <div id="outcome-badge" class="outcome-badge">CASE CLOSED</div>
+          <h1 id="outcome-title">Victim Rescued</h1>
+          <p id="outcome-subtitle" class="outcome-subtitle"></p>
+
+          <div id="outcome-narrative" class="outcome-narrative pixel-inset"></div>
+
+          <div class="outcome-stats">
+            <div class="stat-box pixel-inset">
+              <span class="stat-label">CLOCK LEFT</span>
+              <strong id="out-stat-time">10:00</strong>
+            </div>
+            <div class="stat-box pixel-inset">
+              <span class="stat-label">CLUES LOGGED</span>
+              <strong id="out-stat-clues">4</strong>
+            </div>
+            <div class="stat-box pixel-inset">
+              <span class="stat-label">ACCUSED</span>
+              <strong id="out-stat-suspect">Dr. Julian Vance</strong>
+            </div>
+            <div class="stat-box pixel-inset">
+              <span class="stat-label">RESULT</span>
+              <strong id="out-stat-verdict">CORRECT</strong>
+            </div>
+          </div>
+
+          <div class="outcome-actions">
+            <button id="btn-enter-murder-case" class="btn-pixel btn-red hidden">► ENTER MURDER CASE (30:00)</button>
+            <button id="btn-replay-case" class="btn-pixel btn-cyan">↻ REPLAY CASE #01</button>
+            <button id="btn-outcome-cases" class="btn-pixel">⌂ CASE FILES</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Retro Toast Notification -->
+  <div id="toast-notification" class="toast pixel-box hidden"></div>
+
+  <!-- Vite ES Module Entry Point -->
+</body>
 </html>

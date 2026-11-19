@@ -1,0 +1,15 @@
+{
+  "name": "case-time-to-find-backend",
+  "version": "2.0.0",
+  "description": "Backend REST API server for CASE: TIME TO FIND detective mystery game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node --watch server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
