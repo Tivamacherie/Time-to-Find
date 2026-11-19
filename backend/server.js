@@ -1,8 +1,11 @@
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
-const casesRouter = require("./routes/cases");
+import express from "express";
+import cors from "cors";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import casesRouter from "./routes/cases.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -44,9 +47,19 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log("==================================================");
   console.log("CASE: TIME TO FIND — Backend Server Running");
   console.log(`API Endpoint : http://localhost:${PORT}/api/cases`);
   console.log("==================================================");
+});
+
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.log(`CASE: TIME TO FIND API is already running on port ${PORT}.`);
+    process.exit(0);
+  }
+
+  console.error("Failed to start CASE: TIME TO FIND API:", error);
+  process.exit(1);
 });

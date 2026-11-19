@@ -1,13 +1,25 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
+import express from "express";
+import fs from "fs";
+import path from "path";
+import { randomInt } from "crypto";
+import { fileURLToPath } from "url";
 
 const router = express.Router();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = path.join(__dirname, "..", "data", "cases.json");
 
 function loadCasesData() {
   const raw = fs.readFileSync(DATA_PATH, "utf-8");
   return JSON.parse(raw).cases;
+}
+
+function shuffle(items) {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = randomInt(index + 1);
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
 }
 
 // GET /api/cases - List summary of all case files
@@ -41,7 +53,9 @@ router.get("/:id", (req, res) => {
       return res.status(403).json({ error: "Case disk is locked." });
     }
 
-    const sanitizedSuspects = (found.suspects || []).map(({ isCulprit, ...publicSuspect }) => publicSuspect);
+    const sanitizedSuspects = shuffle(found.suspects || []).map(
+      ({ isCulprit, ...publicSuspect }) => publicSuspect
+    );
 
     res.json({
       id: found.id,
@@ -107,4 +121,4 @@ router.post("/:id/accuse", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
