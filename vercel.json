@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://time-to-find.onrender.com/api/:path*"
+    }
+  ]
+}
